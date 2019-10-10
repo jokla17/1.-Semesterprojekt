@@ -1,4 +1,4 @@
-package worldofzuul;
+package trashworld;
 
 
 //enum is a special CLASS that represents a group of constans. Constants can also be created by using the 'final' keyword.

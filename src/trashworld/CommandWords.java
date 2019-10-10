@@ -1,4 +1,4 @@
-package worldofzuul;
+package trashworld;
 import java.util.HashMap;
 
 
