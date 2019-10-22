@@ -1,13 +1,16 @@
 package trashworld;
+import java.util.Scanner;
 
 public class Game 
 {
     private Parser parser;
     private Room currentRoom;
+    private Player player;
         
     //no-arg constructor that creates a Game object. The Game object runs the createRooms method, and creates a new Parser object.
     public Game() 
     {
+        player = new Player();
         createRooms();
         parser = new Parser();
     }
@@ -68,6 +71,7 @@ public class Game
     //as soon as finished = true, it jumps out of the loops and prints the string.
     public void play() 
     {            
+        setPlayerName();
         printWelcome();
 
                 
@@ -76,14 +80,20 @@ public class Game
             Command command = parser.getCommand();
             finished = processCommand(command);
         }
-        System.out.println("Thank you for playing.  Good bye.");
+        System.out.println("Thank you for playing " + player.getName() + ".  Good bye.");
     }
-
+    //method with a scanner that takes a user input from the Scanner and stores it in the player object as the players name
+    public void setPlayerName(){
+        Scanner input = new Scanner(System.in);
+        System.out.println("Please enter your name: ");
+        player.setName(input.nextLine());
+    }
+    
     //prints a welcome message on screen
     private void printWelcome()
     {
         System.out.println();
-        System.out.println("Welcome to the World of Zuul!");
+        System.out.println("Welcome to TrashWorld " + player.getName() + "!");
         System.out.println("World of Zuul is a new, incredibly boring adventure game.");
         System.out.println("Type '" + CommandWord.HELP + "' if you need help.");
         System.out.println();
