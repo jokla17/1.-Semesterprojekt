@@ -19,53 +19,57 @@ public class Game
     //it also defines what exits the different rooms have and sets the starting room by using currentRoom
     private void createRooms()
     {
-        Room outside, theatre, pub, lab, office, projectRoom;
+        Room garden, kitchen, livingRoom, bedroom, office, supermarket;
       
-        outside = new Room("outside the main entrance of the university. "
-                + "\n To the east is the Theatre. "
-                + "\n To the west is the Pub. "
-                + "\n To the south is the Lab");
-        theatre = new Room("in a lecture theatre. "
-                + "\n To the west is the outside entrance."
-                + "\n To the south is the Computing Admin Office.");
-        pub = new Room("in the campus pub. "
-                + "\n To the south is the Project-Room. "
-                + "\n To the east is the outside entrance.");
-        lab = new Room("in a computing lab. "
-                + "\n To the west is the Project-Room. "
-                + "\n To the north is the outside entrance."
-                + "\n To the east is the Computing Admin Office.");
-        office = new Room("in the computing admin office"
-                + "\n To the north is the Theatre."
-                + "\n To the west is the Lab.");
-        projectRoom = new Room("in the Project-Room"
-                + "\n To the north is the Pub."
-                + "\n To the east is the Lab.");
+        garden = new Room("in the garden outside your house."
+                + "\n To the east is the path to the supermarket. "
+                + "\n To the west is the office. "
+                + "\n To the north is the kitchen. ");
+        kitchen = new Room("in your kitchen. "
+                + "\n To the west is the living room."
+                + "\n To the south is the garden.");
+        livingRoom = new Room("in your living room. "
+                + "\n To the south is the office. "
+                + "\n To the east is the kitchen."
+                + "\n To the north is the bedroom.");
+        bedroom = new Room("in your bedroom. "
+                + "\n To the south is the living room.");
+        office = new Room("in the office"
+                + "\n To the north is the living room."
+                + "\n To the east is the garden.");
+        supermarket = new Room("in the supermarket"
+                + "\n To the west is the path home to your garden.");
         
         
-        outside.setExit("east", theatre);
-        outside.setExit("south", lab);
-        outside.setExit("west", pub);
+        garden.setExit("east", supermarket);
+        garden.setExit("north", kitchen);
+        garden.setExit("west", office);
 
-        theatre.setExit("west", outside);
-        theatre.setExit("south", office);
+        kitchen.setExit("west", livingRoom);
+        kitchen.setExit("south", garden);
 
-        pub.setExit("east", outside);
-        pub.setExit("south", projectRoom);
+        livingRoom.setExit("north", bedroom);
+        livingRoom.setExit("south", office);
+        livingRoom.setExit("east", kitchen);
         
-        projectRoom.setExit("north", pub);
-        projectRoom.setExit("east", lab);
+        supermarket.setExit("west", garden);
 
-        lab.setExit("north", outside);
-        lab.setExit("east", office);
-        lab.setExit("west", projectRoom);
+        bedroom.setExit("south", livingRoom);
 
-        office.setExit("west", lab);
-        office.setExit("north", theatre);
+        office.setExit("east", garden);
+        office.setExit("north", livingRoom);
 
-        currentRoom = outside;
+        Item item1 = new Item("randomObj1", "This is a dummy-item");
+        Item item2 = new Item("randomObj2", "This is a dummy-item");
+        Item item3 = new Item("randomObj3", "This is a dummy-item");
+        
+        garden.addItem(item1);
+        garden.addItem(item2);
+        garden.addItem(item3);
+        
+        currentRoom = garden;
     }
-
+    
     //method that runs the printWelcome method, creates a boolean-type variable called finished which is set to false.
     //while loop runs as long as finished IS NOT true. Runs getCommand on the parser object and converts it to a Command object called command.
     //as soon as finished = true, it jumps out of the loops and prints the string.
@@ -82,6 +86,7 @@ public class Game
         }
         System.out.println("Thank you for playing " + player.getName() + ".  Good bye.");
     }
+    
     //method with a scanner that takes a user input from the Scanner and stores it in the player object as the players name
     public void setPlayerName(){
         Scanner input = new Scanner(System.in);
@@ -97,6 +102,7 @@ public class Game
         System.out.println("TrashWorld is a new, incredibly boring adventure game.");
         System.out.println("Type '" + CommandWord.HELP + "' if you need help.");
         System.out.println();
+        System.out.println(currentRoom.printItems(currentRoom.getItems()));
         System.out.println(currentRoom.getLongDescription());
     }
 
@@ -164,6 +170,7 @@ public class Game
         }
         else {
             currentRoom = nextRoom;
+            System.out.println(currentRoom.printItems(currentRoom.getItems()));
             System.out.println(currentRoom.getLongDescription());
         }
     }
