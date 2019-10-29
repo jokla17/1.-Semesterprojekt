@@ -17,7 +17,7 @@ public class Room
     //accessible by using a string
     private HashMap<String, Room> exits;
     
-    private ArrayList<Item> items;
+    private HashMap<String, Item> items;
     
     //constructor that takes a String as an argument. Creates a Room-object that has a description, and an exit hashmap that contains a String
     //which refers to room-objects they player can enter via the hashmap. 
@@ -25,7 +25,7 @@ public class Room
     {
         this.description = description;
         exits = new HashMap<String, Room>();
-        items = new ArrayList<Item>();
+        items = new HashMap<String, Item>();
     }
 
     //method that maps exits with a String(direction) to a neighboring room-object. This means that by calling this method
@@ -65,13 +65,17 @@ public class Room
     }
     
     //adds item-object to items-array in a given room
-    public void addItem(Item item){
-        items.add(item);
+    public void addItem(String description, Item item){
+        items.put(description, item);
     }
     
     //removes item-object from items-array in a given room
     public void removeItem(Item item){
         items.remove(item);
+    }
+    
+    public void removeitem(String name){
+        items.remove(name);
     }
     
     //runs the getName() method from item-class to return the name-attribute of the item
@@ -80,23 +84,24 @@ public class Room
     }
 
     //fetches the item-array in the given room
-    public ArrayList<Item> getItems() {
+    public HashMap<String, Item> getItems() {
         return items;
     }
     
     //sets an item in a given room array to another item
-    public void setItems(ArrayList<Item> items) {
+    public void setItems(HashMap<String, Item> items) {
         this.items = items;
     }
     
     //prints out the items in a given room by getting the items name-attributes and adding these to a string (by using concat) which is returned
-    public String printItems(ArrayList items){
+    public String printItems(HashMap items){
         System.out.println("In this room you see the following items: ");
         String itemstring = new String();
-        for (Item i : this.items) {
-                //System.out.println(i.getName());
-                itemstring = itemstring.concat(i.getName() + " | ");
-            }
+        Iterator iter = items.entrySet().iterator();
+	while (iter.hasNext()) {
+		HashMap.Entry entry = (HashMap.Entry) iter.next();
+		itemstring = itemstring.concat(entry.getKey().toString() + " ");
+	}
         return itemstring;
     }
 }

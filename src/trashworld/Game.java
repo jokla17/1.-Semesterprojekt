@@ -20,7 +20,6 @@ public class Game
     private void createRooms()
     {
         Room garden, kitchen, livingRoom, bedroom, office, supermarket;
-      
         garden = new Room("in the garden outside your house."
                 + "\n To the east is the path to the supermarket. "
                 + "\n To the west is the office. "
@@ -59,13 +58,13 @@ public class Game
         office.setExit("east", garden);
         office.setExit("north", livingRoom);
 
-        Item item1 = new Item("randomObj1", "This is a dummy-item");
-        Item item2 = new Item("randomObj2", "This is a dummy-item");
-        Item item3 = new Item("randomObj3", "This is a dummy-item");
+        Item tomato = new Item("Tomato", "This is a tomato");
+        Item banana = new Item("Banana", "This is a banana");
+        Item orange = new Item("Orange", "This is an orange");
         
-        garden.addItem(item1);
-        garden.addItem(item2);
-        garden.addItem(item3);
+        garden.addItem("Tomato", tomato);
+        garden.addItem("Banana", banana);
+        garden.addItem("Orange", orange);
         
         currentRoom = garden;
     }
@@ -92,6 +91,24 @@ public class Game
         Scanner input = new Scanner(System.in);
         System.out.println("Please enter your name: ");
         player.setName(input.nextLine());
+    }
+    
+    //method that enables the player to pick up items. The method finds the item in the items HashMap attribute from the Room-class
+    //and adds that item to the player inventory Array.
+    public void pickUp(Command command){
+        if(!command.hasSecondWord()) {
+            System.out.println("Take what?");
+            return;
+        }
+        String item = command.getSecondWord();
+        try{
+            currentRoom.getItems().get(item).addToInventory();
+            System.out.println("You picked up: " + item);
+            currentRoom.getItems().remove(item);
+        }catch(NullPointerException npe){
+            System.out.println("That item doesn't exist. Try again with another item-name and/or remember that the item names are case-sensitive");
+        }
+        
     }
     
     //prints a welcome message on screen
@@ -133,10 +150,24 @@ public class Game
         }
         else if (commandWord == CommandWord.QUIT) {
             wantToQuit = quit(command);
+        }else if (commandWord == CommandWord.TAKE){
+            pickUp(command);
+        } else if (commandWord == CommandWord.INVENTORY){
+            printInventory();
         }
         return wantToQuit;
     }
 
+    //prints all items from the inventory array
+    public void printInventory(){
+        String inventorystring = new String();
+            System.out.println("Your inventory has the following items: ");
+            for (int i = 0; i < Player.inventory.size(); i++) {
+                inventorystring = inventorystring.concat("'" + Player.inventory.get(i).getName() + "'");
+            }
+        System.out.println(inventorystring);
+    }
+    
     //method that prints the help string
     private void printHelp() 
     {
@@ -147,7 +178,7 @@ public class Game
         parser.showCommands();
         System.out.println(currentRoom.getLongDescription());
     }
-
+    
     //method goRoom that takes an arguement of type Command
     //if the Command object does not have a second, print "Go where?"
     //direction variable of type string is set to the second word of the command

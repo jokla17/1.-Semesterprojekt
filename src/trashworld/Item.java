@@ -5,10 +5,6 @@
  */
 package trashworld;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.ArrayList;
-
 /**
  *
  * @author svane
@@ -37,6 +33,13 @@ public class Item {
     public void setDescription(String description) {
         this.description = description;
     }
+    
+    public void addToInventory(){
+        trashworld.Player.getInventory().add(this);
+    }
+    
+    
+    
    
     
     

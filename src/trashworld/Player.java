@@ -5,13 +5,24 @@
  */
 package trashworld;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author svane
  */
 public class Player {
     private String name;
+    public static ArrayList<Item> inventory = new ArrayList<>();
 
+    public static ArrayList<Item> getInventory() {
+        return inventory;
+    }
+
+    public void setInventory(ArrayList<Item> inventory) {
+        this.inventory = inventory;
+    }
+    
     public String getName() {
         return name;
     }
