@@ -180,9 +180,13 @@ public class Game {
             }
             Quiz.isDone = true;
             System.out.println("You have completed the quiz!");
+            Item key = new Item("key", "This is a key that unlocks the door to the next room");
+            currentRoom.addItem("key", key);
+            System.out.println("A key has been dropped");
         } else{
             System.out.println("You have already completed this quiz. Please continue to another room");
         }
+        
     }
 
     //prints a welcome message on screen
