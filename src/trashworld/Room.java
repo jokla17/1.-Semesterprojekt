@@ -19,6 +19,8 @@ public class Room
     
     private HashMap<String, Item> items;
     
+    private Quiz roomQuiz;
+    
     //constructor that takes a String as an argument. Creates a Room-object that has a description, and an exit hashmap that contains a String
     //which refers to room-objects they player can enter via the hashmap. 
     public Room(String description) 
@@ -62,6 +64,14 @@ public class Room
     public Room getExit(String direction) 
     {
         return exits.get(direction);
+    }
+
+    public Quiz getRoomQuiz() {
+        return roomQuiz;
+    }
+
+    public void setRoomQuiz(Quiz roomQuiz) {
+        this.roomQuiz = roomQuiz;
     }
     
     //adds item-object to items-array in a given room

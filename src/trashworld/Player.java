@@ -14,7 +14,8 @@ import java.util.ArrayList;
 public class Player {
     private String name;
     public static ArrayList<Item> inventory = new ArrayList<>();
-
+    public static int points = 0;
+    
     public static ArrayList<Item> getInventory() {
         return inventory;
     }
@@ -30,5 +31,15 @@ public class Player {
     public void setName(String name) {
         this.name = name;
     }
+
+    public int getPoints() {
+        return points;
+    }
+
+    public void setPoints(int points) {
+        this.points = points;
+    }
+    
+    
     
 }
