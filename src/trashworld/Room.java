@@ -12,6 +12,7 @@ import trashworld.Item;
 public class Room 
 {
     private String description;
+    private boolean isLocked = true;
     
     //creates something similar to an array, but instead of accessing the room object by an index, the room-object is
     //accessible by using a string
@@ -102,6 +103,16 @@ public class Room
     public void setItems(HashMap<String, Item> items) {
         this.items = items;
     }
+
+    public boolean isIsLocked() {
+        return isLocked;
+    }
+
+    public void setIsLocked(boolean isLocked) {
+        this.isLocked = isLocked;
+    }
+    
+    
     
     //prints out the items in a given room by getting the items name-attributes and adding these to a string (by using concat) which is returned
     public String printItems(HashMap items){

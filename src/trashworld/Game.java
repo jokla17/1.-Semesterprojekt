@@ -68,13 +68,77 @@ public class Game {
         supermarket.setExit("west", garden);
 
         //garden items instantiated
-        Item tomato = new Item("Tomato", "This is a tomato");
-        Item banana = new Item("Banana", "This is a banana");
-        Item orange = new Item("Orange", "This is an orange");
+        Item weed = new Item("Weed", "You picked up the weed and "
+                + "placed it in the compost heap. This action prevented waste to the enviorment.");
+        Item grass = new Item("Grass", "When cutting grass, "
+                + "remember to not put it into the bin instead of putting it in a plastic bag.");
+        Item apple = new Item("Apple", "Your appletree is dropping apples to the ground. "
+                + "Remember to pick up the apples before they rot and put them in the compost heap.");
         //add items to garden
-        garden.addItem("Tomato", tomato);
-        garden.addItem("Banana", banana);
-        garden.addItem("Orange", orange);
+        garden.addItem("Weed", weed);
+        garden.addItem("Grass", grass);
+        garden.addItem("Apple", apple);
+        
+        //kitchen items instantiated
+        Item meat = new Item("Meat", "You bought to much meat. "
+                + "Freeze down the remaining meat to prevent the mictroorganisms to die and keeping your meat eatable");
+        Item stew = new Item("Stew", "You have some stew from last nights meal. "
+                + "Eat it instead of trowing it to the trash to prevent waste.");
+        Item cake = new Item("Cake", "The expiration date of the cake has expired with two days but does show any sign of rot."
+                + " To prevent the waste of food, eat it or give it away.");
+        
+        //add items to kitchen
+        kitchen.addItem("Meat", meat);
+        kitchen.addItem("Stew", stew);
+        kitchen.addItem("Cake", cake);
+        
+        //Livingroom items instantiated
+        Item television = new Item("Television", "Since this is an electronic device, "
+                + "it is important to throw it out in this bin");
+        Item sofa = new Item("Sofa", "You want to get rid of your sofa, what do you do? "
+                + "Instead of throwing you sofa to a trashcontainer maybe give it to a recycle center.");
+        Item cd = new Item("Cd", "When throwing away cds, place it into the container for combustible waste, "
+                + "so it can be used to generate electricity and heating.");
+        
+        //add items to Livingroom
+        livingRoom.addItem("Television", television);
+        livingRoom.addItem("Sofa", sofa);
+        livingRoom.addItem("Cd", cd);
+        
+        //bedroom items instantiated
+        Item clothing = new Item("Clothing", "When you want to get rid of clothing you don't use, "
+                + "find a local recyclecenter and donate it.");
+        Item chipsBag = new Item("Chipsbag", "Next time you buy snacks or anything else, try to avoid plastic products");
+        Item lightbulb = new Item("Lightbulb", "When the lightbulb has been drained of energy, dispose of it in the nearest recycle center.");
+        
+        //add items to Bedroom
+        bedroom.addItem("Clothing", clothing);
+        bedroom.addItem("ChipsBag", chipsBag);
+        bedroom.addItem("Lightbulb", lightbulb);
+        
+        //office items instantiated
+        Item laptop = new Item("Laptop", "When throwing out this device, "
+                + "remember to place it into the electronic container.");
+        Item coffee = new Item("Coffee", "Instead of buying coffee from a cafe, get a thermos bottle instead");
+        Item calender = new Item("Calender", "Get rid of your physical calender and create one online");
+        
+        //add items to office
+        office.addItem("Laptop", laptop);
+        office.addItem("Coffee", coffee);
+        office.addItem("Calender", calender);
+        
+        //supermarket items instantiated
+        Item bread = new Item("Bread", "When picking a bread on the aisle, "
+                + "be aware of the expiration date since most supermarkets throw out their expired products");
+        Item fish = new Item("Fish", "When buying fish, "
+                + "remember to pick the product that is wrapped in least amount of plastic");
+        Item fruit = new Item("Fruit", "When buying fruits, look for the most ripe fruit.");
+        
+        //add items to supermarket
+        supermarket.addItem("Bread", bread);
+        supermarket.addItem("Fish", fish);
+        supermarket.addItem("Fruit", fruit);
+        
 
         Question[] gardenQuestions = {
             new Question(
@@ -136,6 +200,9 @@ public class Game {
         try {
             currentRoom.getItems().get(item).addToInventory();
             System.out.println("You picked up: " + item);
+            System.out.println(currentRoom.getItems().get(item).getDescription());
+            System.out.println("Good Job! You scored 1 point");
+            Player.points++;
             currentRoom.getItems().remove(item);
         } catch (NullPointerException npe) {
             System.out.println("That item doesn't exist. Try again with another item-name and/or remember that the item names are case-sensitive");
@@ -232,7 +299,9 @@ public class Game {
             startQuiz(command);
         } else if (commandWord == CommandWord.POINTS){
             System.out.println("You currently have " + Player.points + " points.");
-        }
+        } else if (commandWord == CommandWord.UNLOCK){
+            
+        } 
         return wantToQuit;
     }
 
