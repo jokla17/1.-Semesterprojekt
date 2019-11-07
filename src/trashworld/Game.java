@@ -68,24 +68,28 @@ public class Game {
         supermarket.setExit("west", garden);
 
         //garden items instantiated
-        Item weed = new Item("Weed", "You picked up the weed and "
-                + "placed it in the compost heap. This action prevented waste to the enviorment.");
-        Item grass = new Item("Grass", "When cutting grass, "
-                + "remember to not put it into the bin instead of putting it in a plastic bag.");
+        Item weed = new Item("Weeds", "You picked up the weeds and "
+                + "placed it in the compost heap. This action prevented waste to the environment.");
+        Item grass = new Item("Grass", "When cutting grass, remember to leave the grass trimmings on the lawn. "
+                + "\n It will break down eventually and prevent waste in the form of plastic bags if you had chosen to throw out the trimmings");
         Item apple = new Item("Apple", "Your appletree is dropping apples to the ground. "
-                + "Remember to pick up the apples before they rot and put them in the compost heap.");
+                + "\n Remember that, instead of throwing them out, apples can either be: "
+                + "\n 1. Put in your compost heap. When they rot, they will provide great nutrients to the soil."
+                + "\n 2. Given out for free to people around you."
+                + "\n This will make sure that you don't generate any unnecessary waste for the environment");
+        
         //add items to garden
         garden.addItem("Weed", weed);
         garden.addItem("Grass", grass);
         garden.addItem("Apple", apple);
         
         //kitchen items instantiated
-        Item meat = new Item("Meat", "You bought to much meat. "
-                + "Freeze down the remaining meat to prevent the mictroorganisms to die and keeping your meat eatable");
-        Item stew = new Item("Stew", "You have some stew from last nights meal. "
-                + "Eat it instead of trowing it to the trash to prevent waste.");
-        Item cake = new Item("Cake", "The expiration date of the cake has expired with two days but does show any sign of rot."
-                + " To prevent the waste of food, eat it or give it away.");
+        Item meat = new Item("Meat", "You bought too much meat. "
+                + "\n You choose to freeze down the remaining meat to prevent mictroorganisms from developing and to keep your meat fresh and edible");
+        Item stew = new Item("Stew", "You have some stew leftovers from last nights meal. "
+                + "\n You choose to eat it for dinner tonight instead of trowing it out and thereby you prevent more waste.");
+        Item cake = new Item("Cake", "The expiration date of the cake has expired with two days but does show any sign of rotting."
+                + "\n To prevent the waste of food you choose to eat it some of it and give away the rest.");
         
         //add items to kitchen
         kitchen.addItem("Meat", meat);
@@ -93,12 +97,14 @@ public class Game {
         kitchen.addItem("Cake", cake);
         
         //Livingroom items instantiated
-        Item television = new Item("Television", "Since this is an electronic device, "
-                + "it is important to throw it out in this bin");
-        Item sofa = new Item("Sofa", "You want to get rid of your sofa, what do you do? "
-                + "Instead of throwing you sofa to a trashcontainer maybe give it to a recycle center.");
-        Item cd = new Item("Cd", "When throwing away cds, place it into the container for combustible waste, "
-                + "so it can be used to generate electricity and heating.");
+        Item television = new Item("Television", "You recently acquired a new TV and now you have to get rid of this old one, "
+                + "\n You choose to sell the old television on Ebay since there's nothing wrong with it. "
+                + "\n Thereby you prevented generating more unnecessary electronical-waste");
+        Item sofa = new Item("Sofa", "You want to get rid of your old sofa, what do you do? "
+                + "\n Instead of throwing you sofa to a trashcontainer you choose to give it to a recycling center"
+                + "\n because other people might still be able to use it.");
+        Item cd = new Item("Cd", "When throwing out this cd,  you remember  to place it into the container for combustible waste, "
+                + "\n so it can be used to generate electricity and heating for others.");
         
         //add items to Livingroom
         livingRoom.addItem("Television", television);
@@ -106,21 +112,22 @@ public class Game {
         livingRoom.addItem("Cd", cd);
         
         //bedroom items instantiated
-        Item clothing = new Item("Clothing", "When you want to get rid of clothing you don't use, "
-                + "find a local recyclecenter and donate it.");
-        Item chipsBag = new Item("Chipsbag", "Next time you buy snacks or anything else, try to avoid plastic products");
-        Item lightbulb = new Item("Lightbulb", "When the lightbulb has been drained of energy, dispose of it in the nearest recycle center.");
+        Item clothing = new Item("Clothing", "You want to get rid of this old clothing you don't use anymore, "
+                + "\n so you find a local recycling-center and donate it to prevent waste.");
+        Item chipsBag = new Item("Chipsbag", "Next time you buy snacks or anything else, try to avoid buying items in plastic packaging");
+        Item lightbulb = new Item("Lightbulb", "When the lightbulb is no longer of use to you, dispose of it at the nearest recycling-center.");
         
         //add items to Bedroom
         bedroom.addItem("Clothing", clothing);
-        bedroom.addItem("ChipsBag", chipsBag);
+        bedroom.addItem("Chipsbag", chipsBag);
         bedroom.addItem("Lightbulb", lightbulb);
         
         //office items instantiated
-        Item laptop = new Item("Laptop", "When throwing out this device, "
+        Item laptop = new Item("Laptop", "When throwing out this laptop, "
                 + "remember to place it into the electronic container.");
-        Item coffee = new Item("Coffee", "Instead of buying coffee from a cafe, get a thermos bottle instead");
-        Item calender = new Item("Calender", "Get rid of your physical calender and create one online");
+        Item coffee = new Item("Coffee", "Instead of buying coffee in cardboard cups, get a thermos-bottle instead. "
+                + "\n This will prevent a lot of paper/carboard waste");
+        Item calender = new Item("Calender", "Stop buying physical calendars and create them online to reduce waste of paper");
         
         //add items to office
         office.addItem("Laptop", laptop);
@@ -128,11 +135,13 @@ public class Game {
         office.addItem("Calender", calender);
         
         //supermarket items instantiated
-        Item bread = new Item("Bread", "When picking a bread on the aisle, "
-                + "be aware of the expiration date since most supermarkets throw out their expired products");
-        Item fish = new Item("Fish", "When buying fish, "
-                + "remember to pick the product that is wrapped in least amount of plastic");
-        Item fruit = new Item("Fruit", "When buying fruits, look for the most ripe fruit.");
+        Item bread = new Item("Bread", "When picking a pack of bread on the aisle, "
+                + "be aware of the expiration date since most supermarkets throw out their expired products."
+                + "\n By buying bread that expire right around the time you will have used it, you prevent waste of food products");
+        Item fish = new Item("Fish", "While looking for fish for tonights dinner, you see a fish that expires today."
+                + "\n You pick the fish that expires today, since it will still be fine to eat, and will most likely be thrown out by the supermarket tommorow");
+        Item fruit = new Item("Fruit", "When buying fruit, look for fruits that are packaged in the least ammount of packagin possible."
+                + "\n It is always preferrable to buy fruit and vegetables in loose weight since they usually aren't packaged at all");
         
         //add items to supermarket
         supermarket.addItem("Bread", bread);
@@ -358,6 +367,7 @@ public class Game {
             System.out.println("Quit what?");
             return false;
         } else {
+            System.out.println("You scored " + Player.points + " points total. Good job!");
             return true;
         }
     }
