@@ -68,7 +68,7 @@ public class Game {
         supermarket.setExit("west", garden);
 
         //garden items instantiated
-        Item weed = new Item("Weeds", "You picked up the weeds and "
+        Item weed = new Item("Weed", "You picked up the weeds and "
                 + "placed it in the compost heap. This action prevented waste to the environment.");
         Item grass = new Item("Grass", "When cutting grass, remember to leave the grass trimmings on the lawn. "
                 + "\n It will break down eventually and prevent waste in the form of plastic bags if you had chosen to throw out the trimmings");
@@ -239,6 +239,7 @@ public class Game {
             } else if (currentRoom == livingRoom) {
                 System.out.println("You start the quiz for living room");
             }
+            
             System.out.println("You enter your response as just a single letter");
 
             for (int i = 0; i < currentRoom.getRoomQuiz().questions.length; i++) {
@@ -269,7 +270,12 @@ public class Game {
     private void printWelcome() {
         System.out.println();
         System.out.println("Welcome to TrashWorld " + player.getName() + "!");
-        System.out.println("TrashWorld is a new, incredibly boring adventure game.");
+        System.out.println("TrashWorld is a new game, that is here to help you understand how you can help save the environment!."
+                + "\nTrashWorld is made to be a learning experience, for you to expand your knowledge in regards to how to handle waste in your everyday life."
+                + "\nThe game is simple:"
+                + "\n1: Pick up items around the rooms and learn something new!"
+                + "\n2: Complete the quizzes in the rooms to proceed to the next one"
+                + "\n3: Score as many points as possible and see how you did in the end");
         System.out.println("Type '" + CommandWord.HELP + "' if you need help.");
         System.out.println();
         System.out.println(currentRoom.printItems(currentRoom.getItems()));
@@ -310,12 +316,18 @@ public class Game {
             System.out.println("You currently have " + Player.points + " points.");
         } else if (commandWord == CommandWord.UNLOCK){
             
-        } 
+        } else if (commandWord == CommandWord.ITEMS){
+            System.out.println(currentRoom.printItems(currentRoom.getItems()));
+        }
         return wantToQuit;
     }
 
     //prints all items from the inventory array
     public void printInventory() {
+        if (Player.inventory.isEmpty()){
+            System.out.println("Your inventory is empty at the moment. You can pick up items by typing 'take' followed by the name of the item");
+            return;
+        }
         String inventorystring = new String();
         System.out.println("Your inventory has the following items: ");
         for (int i = 0; i < Player.inventory.size(); i++) {
@@ -326,8 +338,7 @@ public class Game {
 
     //method that prints the help string
     private void printHelp() {
-        System.out.println("You are lost. You are alone. You wander");
-        System.out.println("around at the university.");
+        System.out.println("You called for the 'help' command!");
         System.out.println();
         System.out.println("Your command words are:");
         parser.showCommands();
