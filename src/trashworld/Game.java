@@ -255,12 +255,40 @@ public class Game {
                     System.out.println("You didn't receive any points for that answer.");
                 }
             }
+            
             Quiz.isDone = true;
+            
             System.out.println("You have completed the quiz!");
-            Item key = new Item("key", "This is a key that unlocks the door to the next room");
-            currentRoom.addItem("key", key);
-            System.out.println("A key has been dropped");
-        } else{
+            if (currentRoom == garden) {
+                Item officeKey = new Key(office, "Key(office)", "a key to the office");
+                currentRoom.addItem("Key(office)", officeKey);
+                System.out.println("Key(office) has been dropped");
+
+            } else if (currentRoom == office) {
+                Item kitchenKey = new Key(kitchen, "Key(kitchen)", "a key to the kitchen");
+                currentRoom.addItem("Key(kitchen)", kitchenKey);
+                System.out.println("Key(kitchen) has been dropped");
+
+            } else if (currentRoom == kitchen) {
+                Item bedroomKey = new Key(bedroom, "Key(bedroom)", "a key to the bedroom");
+                currentRoom.addItem("Key(bedroom)", bedroomKey);
+                System.out.println("Key(bedroom) has been dropped");
+
+            } else if (currentRoom == bedroom) {
+                Item livingRoomKey = new Key(livingRoom, "Key(livingroom)", "a key to the livingroom");
+                currentRoom.addItem("Key(livingroom)", livingRoomKey);
+                System.out.println("Key(livingroom) has been dropped");
+
+            } else if (currentRoom == livingRoom) {
+                Item supermarketKey = new Key(supermarket, "Key(supermarket)", "a key to the supermarket");
+                currentRoom.addItem("Key(supermarket)", supermarketKey);
+                System.out.println("Key(supermarket) has been dropped");
+
+            } else if (currentRoom == supermarket) {
+                System.out.println("Your have completed all of the quizzes!");
+            }
+
+        } else {
             System.out.println("You have already completed this quiz. Please continue to another room");
         }
         
@@ -314,8 +342,6 @@ public class Game {
             startQuiz(command);
         } else if (commandWord == CommandWord.POINTS){
             System.out.println("You currently have " + Player.points + " points.");
-        } else if (commandWord == CommandWord.UNLOCK){
-            
         } else if (commandWord == CommandWord.ITEMS){
             System.out.println(currentRoom.printItems(currentRoom.getItems()));
         }
@@ -363,10 +389,12 @@ public class Game {
 
         if (nextRoom == null) {
             System.out.println("There is no door!");
-        } else {
+        } else if(nextRoom.isUnlockable() || nextRoom == garden){
             currentRoom = nextRoom;
             System.out.println(currentRoom.printItems(currentRoom.getItems()));
             System.out.println(currentRoom.getLongDescription());
+        } else if (!nextRoom.isUnlockable()){
+            System.out.println("Door is locked");
         }
     }
 

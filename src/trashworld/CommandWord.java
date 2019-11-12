@@ -6,7 +6,7 @@ public enum CommandWord
 {
     //group of constants. Defines the name of the command and how to execute the command on the commandline. The string inside
     //the parantheses are how to call the command.
-    GO("go"), QUIT("quit"), HELP("help"), UNKNOWN("?"), TAKE("take"), INVENTORY("inventory"), START("start"), POINTS("points"), UNLOCK("unlock"), ITEMS("items");
+    GO("go"), QUIT("quit"), HELP("help"), UNKNOWN("?"), TAKE("take"), INVENTORY("inventory"), START("start"), POINTS("points"), ITEMS("items");
     
     //new private attribute of type String called commandString
     private String commandString;

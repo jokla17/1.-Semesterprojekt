@@ -7,7 +7,7 @@ import java.util.Iterator;
 public class Room {
 
     private String description;
-    private boolean isLocked = true;
+    
 
     //creates something similar to an array, but instead of accessing the room object by an index, the room-object is
     //accessible by using a string
@@ -93,12 +93,17 @@ public class Room {
         this.items = items;
     }
 
-    public boolean isIsLocked() {
-        return isLocked;
-    }
-
-    public void setIsLocked(boolean isLocked) {
-        this.isLocked = isLocked;
+    public boolean isUnlockable() {
+        boolean result = false;
+        for (int i = 0; i < Player.inventory.size(); i++) {
+            Item d = Player.inventory.get(i);
+            if (d instanceof Key) {
+                if (((Key) d).unlocks == this) {
+                    result = true;
+                }
+            }
+        }
+        return result;
     }
 
     //prints out the items in a given room by getting the items name-attributes and adding these to a string (by using concat) which is returned
