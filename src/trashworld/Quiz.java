@@ -5,8 +5,6 @@
  */
 package trashworld;
 
-import java.util.ArrayList;
-
 /**
  *
  * @author svane

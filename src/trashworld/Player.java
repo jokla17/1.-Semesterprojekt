@@ -19,10 +19,6 @@ public class Player {
     public static ArrayList<Item> getInventory() {
         return inventory;
     }
-
-    public void setInventory(ArrayList<Item> inventory) {
-        this.inventory = inventory;
-    }
     
     public String getName() {
         return name;
@@ -35,11 +31,4 @@ public class Player {
     public int getPoints() {
         return points;
     }
-
-    public void setPoints(int points) {
-        this.points = points;
-    }
-    
-    
-    
 }

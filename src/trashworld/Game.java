@@ -148,7 +148,6 @@ public class Game {
         supermarket.addItem("Fish", fish);
         supermarket.addItem("Fruit", fruit);
         
-
         Question[] gardenQuestions = {
             new Question(
             "What color is grass? \n(a) green \n(b) red \n(c) blue",
@@ -224,7 +223,6 @@ public class Game {
             System.out.println("Start what? If you're trying to start a quiz, remember to type 'start quiz'.");
             return;
         }
-
         if (currentRoom.getRoomQuiz().isDone == false) {
             if (currentRoom == garden) {
                 System.out.println("You start the quiz for garden.");
@@ -287,27 +285,25 @@ public class Game {
             } else if (currentRoom == supermarket) {
                 System.out.println("Your have completed all of the quizzes!");
             }
-
         } else {
             System.out.println("You have already completed this quiz. Please continue to another room");
-        }
-        
+        }   
     }
 
     //prints a welcome message on screen
     private void printWelcome() {
         System.out.println();
         System.out.println("Welcome to TrashWorld " + player.getName() + "!");
-        System.out.println("TrashWorld is a new game, that is here to help you understand how you can help save the environment!."
+        System.out.println("TrashWorld is a new game, that is here to help you understand how you can help save the environment!"
                 + "\nTrashWorld is made to be a learning experience, for you to expand your knowledge in regards to how to handle waste in your everyday life."
                 + "\nThe game is simple:"
-                + "\n1: Pick up items around the rooms and learn something new!"
+                + "\n1: Pick up items around the rooms and learn something new!(note: after you pick up the items, you don't have to do anything else with them)"
                 + "\n2: Complete the quizzes in the rooms to proceed to the next one"
                 + "\n3: Score as many points as possible and see how you did in the end");
         System.out.println("Type '" + CommandWord.HELP + "' if you need help.");
         System.out.println();
-        System.out.println(currentRoom.printItems(currentRoom.getItems()));
         System.out.println(currentRoom.getLongDescription());
+        System.out.println(currentRoom.printItems(currentRoom.getItems()));
     }
 
     //private method, that returns a boolean value. Takes a Command as argument.
@@ -364,11 +360,19 @@ public class Game {
 
     //method that prints the help string
     private void printHelp() {
+        System.out.println(currentRoom.getLongDescription());
         System.out.println("You called for the 'help' command!");
         System.out.println();
         System.out.println("Your command words are:");
-        parser.showCommands();
-        System.out.println(currentRoom.getLongDescription());
+        System.out.println("");
+        System.out.println("'go' 'direction' - moves you into the room that is in that direction."
+                + "\n'quit' - quits the game."
+                + "\n'help' - prints this again."
+                + "\n'take' 'item' - picks up an item."
+                + "\n'inventory' - displays the items that are currently held in inventory."
+                + "\n'start quiz' - starts the quiz in the current room."
+                + "\n'points' - displays your points."
+                + "\n'items' - prints all items that are in the current room.");
     }
 
     //method goRoom that takes an arguement of type Command
@@ -391,8 +395,8 @@ public class Game {
             System.out.println("There is no door!");
         } else if(nextRoom.isUnlockable() || nextRoom == garden){
             currentRoom = nextRoom;
-            System.out.println(currentRoom.printItems(currentRoom.getItems()));
             System.out.println(currentRoom.getLongDescription());
+            System.out.println(currentRoom.printItems(currentRoom.getItems()));
         } else if (!nextRoom.isUnlockable()){
             System.out.println("Door is locked");
         }

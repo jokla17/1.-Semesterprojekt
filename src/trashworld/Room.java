@@ -74,9 +74,6 @@ public class Room {
         items.remove(item);
     }
 
-    public void removeitem(String name) {
-        items.remove(name);
-    }
 
     //runs the getName() method from item-class to return the name-attribute of the item
     public String getName(Item item) {
