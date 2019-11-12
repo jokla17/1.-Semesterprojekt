@@ -260,27 +260,27 @@ public class Game {
             if (currentRoom == garden) {
                 Item officeKey = new Key(office, "Key(office)", "a key to the office");
                 currentRoom.addItem("Key(office)", officeKey);
-                System.out.println("Key(office) has been dropped");
+                System.out.println("Key(office) has been dropped don't forget to pick it up!");
 
             } else if (currentRoom == office) {
                 Item kitchenKey = new Key(kitchen, "Key(kitchen)", "a key to the kitchen");
                 currentRoom.addItem("Key(kitchen)", kitchenKey);
-                System.out.println("Key(kitchen) has been dropped");
+                System.out.println("Key(kitchen) has been dropped don't forget to pick it up!");
 
             } else if (currentRoom == kitchen) {
                 Item bedroomKey = new Key(bedroom, "Key(bedroom)", "a key to the bedroom");
                 currentRoom.addItem("Key(bedroom)", bedroomKey);
-                System.out.println("Key(bedroom) has been dropped");
+                System.out.println("Key(bedroom) has been dropped don't forget to pick it up!");
 
             } else if (currentRoom == bedroom) {
                 Item livingRoomKey = new Key(livingRoom, "Key(livingroom)", "a key to the livingroom");
                 currentRoom.addItem("Key(livingroom)", livingRoomKey);
-                System.out.println("Key(livingroom) has been dropped");
+                System.out.println("Key(livingroom) has been dropped, don't forget to pick it up!");
 
             } else if (currentRoom == livingRoom) {
                 Item supermarketKey = new Key(supermarket, "Key(supermarket)", "a key to the supermarket");
                 currentRoom.addItem("Key(supermarket)", supermarketKey);
-                System.out.println("Key(supermarket) has been dropped");
+                System.out.println("Key(supermarket) has been dropped don't forget to pick it up!");
 
             } else if (currentRoom == supermarket) {
                 System.out.println("Your have completed all of the quizzes!");
