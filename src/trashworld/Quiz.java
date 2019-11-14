@@ -13,7 +13,7 @@ public class Quiz {
     public Question[] questions;
     
     //checks if the quiz is completed or not
-    public static boolean isDone = false;
+    public boolean isDone = false;
 
     public Quiz(Question[] questions) {
         this.questions = questions;

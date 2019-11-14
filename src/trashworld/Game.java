@@ -68,13 +68,14 @@ public class Game {
         supermarket.setExit("west", garden);
 
         //garden items instantiated
-        Item weed = new Item("Weed", "You picked up the weeds and "
-                + "placed it in the compost heap. This action prevented waste to the environment.");
+        Item weed = new Item("Weeds", "You picked up the weeds and "
+                + "placed it in the compost heap - good job! This action prevented waste to the environment.");
         Item grass = new Item("Grass", "When cutting grass, remember to leave the grass trimmings on the lawn. "
-                + "\n It will break down eventually and prevent waste in the form of plastic bags if you had chosen to throw out the trimmings");
-        Item apple = new Item("Apple", "Your appletree is dropping apples to the ground. "
-                + "\n Remember that, instead of throwing them out, apples can either be: "
-                + "\n 1. Put in your compost heap. When they rot, they will provide great nutrients to the soil."
+                + "\n It will break down eventually and prevent waste in the form of plastic bags if you had chosen to throw out the trimmings into plastic bags."
+                + "\n It will also prevent excess CO2 emission since it will be incinerated if you chose to throw it out.");
+        Item apple = new Item("Apple", "Your apple-tree is dropping apples on the ground. "
+                + "\n Remember that instead of throwing them out, apples can either be: "
+                + "\n 1. Put in your compost heap. When they start decomposing, they will provide great nutrients for the soil."
                 + "\n 2. Given out for free to people around you."
                 + "\n This will make sure that you don't generate any unnecessary waste for the environment");
         
@@ -85,11 +86,11 @@ public class Game {
         
         //kitchen items instantiated
         Item meat = new Item("Meat", "You bought too much meat. "
-                + "\n You choose to freeze down the remaining meat to prevent mictroorganisms from developing and to keep your meat fresh and edible");
+                + "\n You choose to freeze down the remaining meat to prevent mictroorganisms from developing in there and to keep your meat fresh and edible. Nice!");
         Item stew = new Item("Stew", "You have some stew leftovers from last nights meal. "
-                + "\n You choose to eat it for dinner tonight instead of trowing it out and thereby you prevent more waste.");
+                + "\n You choose to eat it for dinner tonight instead of trowing it out and thereby you prevent generating more waste.");
         Item cake = new Item("Cake", "The expiration date of the cake has expired with two days but does show any sign of rotting."
-                + "\n To prevent the waste of food you choose to eat it some of it and give away the rest.");
+                + "\n To prevent the waste of food you choose to eat some of it and give away the rest.");
         
         //add items to kitchen
         kitchen.addItem("Meat", meat);
@@ -97,14 +98,14 @@ public class Game {
         kitchen.addItem("Cake", cake);
         
         //Livingroom items instantiated
-        Item television = new Item("Television", "You recently acquired a new TV and now you have to get rid of this old one, "
+        Item television = new Item("Television", "You recently acquired a new TV and now you have to get rid of the old one, "
                 + "\n You choose to sell the old television on Ebay since there's nothing wrong with it. "
                 + "\n Thereby you prevented generating more unnecessary electronical-waste");
         Item sofa = new Item("Sofa", "You want to get rid of your old sofa, what do you do? "
-                + "\n Instead of throwing you sofa to a trashcontainer you choose to give it to a recycling center"
-                + "\n because other people might still be able to use it.");
-        Item cd = new Item("Cd", "When throwing out this cd,  you remember  to place it into the container for combustible waste, "
-                + "\n so it can be used to generate electricity and heating for others.");
+                + "\n Instead of throwing the sofa in a trash-container you choose to give it to a recycling center"
+                + "\n because other people might still be able to use it. Good decision!");
+        Item cd = new Item("Cd", "When throwing out this cd, you remember  to place it into the container for combustible waste"
+                + "\n so it can be used to generate electricity and heating for others when the recycling center send it to be incinerated.");
         
         //add items to Livingroom
         livingRoom.addItem("Television", television);
@@ -112,7 +113,7 @@ public class Game {
         livingRoom.addItem("Cd", cd);
         
         //bedroom items instantiated
-        Item clothing = new Item("Clothing", "You want to get rid of this old clothing you don't use anymore, "
+        Item clothing = new Item("Clothing", "You want to get rid of this old clothing you don't use anymore,"
                 + "\n so you find a local recycling-center and donate it to prevent waste.");
         Item chipsBag = new Item("Chipsbag", "Next time you buy snacks or anything else, try to avoid buying items in plastic packaging");
         Item lightbulb = new Item("Lightbulb", "When the lightbulb is no longer of use to you, dispose of it at the nearest recycling-center.");
@@ -127,7 +128,7 @@ public class Game {
                 + "remember to place it into the electronic container.");
         Item coffee = new Item("Coffee", "Instead of buying coffee in cardboard cups, get a thermos-bottle instead. "
                 + "\n This will prevent a lot of paper/carboard waste");
-        Item calender = new Item("Calender", "Stop buying physical calendars and create them online to reduce waste of paper");
+        Item calender = new Item("Calendar", "Stop buying physical calendars and create them online to reduce waste of paper");
         
         //add items to office
         office.addItem("Laptop", laptop);
@@ -135,10 +136,10 @@ public class Game {
         office.addItem("Calender", calender);
         
         //supermarket items instantiated
-        Item bread = new Item("Bread", "When picking a pack of bread on the aisle, "
-                + "be aware of the expiration date since most supermarkets throw out their expired products."
+        Item bread = new Item("Bread", "When choosing a pack of bread on the aisle, "
+                + "\n pay attention to the expiration date since most supermarkets throw out their expired products."
                 + "\n By buying bread that expire right around the time you will have used it, you prevent waste of food products");
-        Item fish = new Item("Fish", "While looking for fish for tonights dinner, you see a fish that expires today."
+        Item fish = new Item("Fish", "While looking for fish for tonights dinner, you spot a fish that expires today."
                 + "\n You pick the fish that expires today, since it will still be fine to eat, and will most likely be thrown out by the supermarket tommorow");
         Item fruit = new Item("Fruit", "When buying fruit, look for fruits that are packaged in the least ammount of packagin possible."
                 + "\n It is always preferrable to buy fruit and vegetables in loose weight since they usually aren't packaged at all");
@@ -148,30 +149,138 @@ public class Game {
         supermarket.addItem("Fish", fish);
         supermarket.addItem("Fruit", fruit);
         
-        Question[] gardenQuestions = {
-            new Question(
-            "What color is grass? \n(a) green \n(b) red \n(c) blue",
-            "a",
-            "The grass is indeed green",
-            "No, the grass is green"),
-            new Question(
-            "What color is grass? \n(a) green \n(b) red \n(c) blue",
-            "a",
-            "The grass is indeed green",
-            "No, the grass is green"),
-            new Question(
-            "What color is grass? \n(a) green \n(b) red \n(c) blue",
-            "a",
-            "The grass is indeed green",
-            "No, the grass is green"),
-            new Question(
-            "What color is grass? \n(a) green \n(b) red \n(c) blue",
-            "a",
-            "The grass is indeed green",
-            "No, the grass is green"),};
+        //gardenquiz created
+        Question[] gardenQuestions = new Question[]{
+            new Question("Scenario 1: Your garden has been fixed, but you have a lot of garden waste. What will you get rid of all the leaves, grass, sticks and weed?  "
+                    + "\n(a) You'll burn it all bacause it is compost"
+                    + "\n(b) You'll drive the compost to the recycling station "
+                    + "\n(c) You'll put it in your green trash can", 
+                    "b", 
+                    "Correct! The recycling station have different trash-containers just for garden waste. "
+                            + "\n Thereby you make sure that your garden waste is disposed of in the best possible way", 
+                    "Wrong! If you want to get rid of compost properly, drive it to the recycling station."), 
+            new Question("Scenario 2: You have to throw out a small trampoline that is broken. How do you do it in the most sustainable and environmentally friendly way? "
+                    + "\n(a) You drive it to the recycling station and throw it into a container "
+                    + "\n(b) You separate the trampoline into: the jump cloth, edge protection, frame and springs. Afterwards you drive it to the recycling station. "
+                    + "\n(c) You throw the trampoline in the green trashcan", 
+                    "b", 
+                    "Correct! Seperating the trampoline is the right way, you can then put it in the right containers for that specific material", 
+                    "Wrong! The correct way is to split the trampoline into different materials, and put it in the right containers")};
         Quiz gardenQuiz = new Quiz(gardenQuestions);
         garden.setRoomQuiz(gardenQuiz);
+        
+        //kitchenquiz created
+        Question[] kitchenQuestions = new Question[]{
+            new Question("Scenario 1: You're planning to cook spaghetti bolognese for dinner. For this occasion, you have bought one kilogram beef. However you have found out that you only need 500 grams. "
+                    + "\nWhat will you do with the rest of the beef?  "
+                    + "\n (a) You will throw out the meat in the trash can, since you are not going to use it."
+                    + "\n (b) You decide to freeze the meat, since you want to save it for another day. "
+                    + "\n (c) You leave the meat on the table.", 
+                    "b", 
+                    "Correct! -  Freezing meat will you the opportunity to use the remaining meat again.  Thereby you will avoid food waste. "
+                            + "\n Food waste cost the Danes 13.5 billion crowns a year including VAT and taxes. "
+                            + "\n Furthermore, every Dane throws out an average of 47 kg edible food every year.", 
+                    "Wrong! -  The meat is still edible and therefore it is important to keep it, so you can make use of it again. "
+                            + "\n Either you eat it the next day, or freeze it down. Food waste cost the Danes 13.5 billion crowns including VAT and taxes a year. "
+                            + "\n Furthermore, every Dane throws out an average of 47 kilograms  edible food every year."), 
+            new Question("Scenario 2: You need to decide what you want to do with the packaging from the meat you just ate. "
+                    + "\nThe packaging consists of plastic foil and plastic tray respectively. What do you do with the packaging? "
+                    + "\n (a) You throw out the packaging unsorted. "
+                    + "\n (b) You tear the plastic foil off the plastic tray, rinse the tray, and then sort the two varieties for waste. "
+                    + "\n (c) You throw it over the fence to your neighbor.", 
+                    "b", 
+                    "Correct! - It is important to recycle as much waste as possible. "
+                            + "\n Waste recycling options will be very limited if not sorted. Therefore, it is important that the plastic foil is sorted from the plastic tray", 
+                    "Wrong! - It is important to recycle as much waste as possible. Waste recycling options will be very limited if it's not sorted beforehand. "
+                            + "\n Therefore, it is important that the plastic foil is sorted from the plastic tray")};
+        Quiz kitchenQuiz = new Quiz(kitchenQuestions);
+        kitchen.setRoomQuiz(kitchenQuiz);
+        
+        //officequiz created
+        Question[] officeQuestions = new Question[]{
+            new Question("Scenario 1: Your office is getting renovated, but you have a lot of things lying on your table that can't be used for anything (batteries, pens etc). "
+                    + "\nHow do you want to get rid of these things? "
+                    + "\n (a) You choose to throw it all in the trashcan "
+                    + "\n (b) You go to the recycling station with the things that you want to get rid off. Here you sort the waste, so things get to the right places. "
+                    + "\n (c) You go to the recycling station with the things. Here you choose to throw all the office supplies in the same container.", 
+                    "b", 
+                    "Correct! - It is important to sort waste, as there is a big difference between waste. When waste is mixed, it ends up in incineration. "
+                            + "\n If, on the other hand, you choose to sort in the waste, there is the possibility of recycling, which is better for the environment.", 
+                    "Wrong! - It is important to sort waste, as there is a big difference between waste. When waste is mixed, it ends up in incineration. "
+                            + "\n If, on the other hand, you choose to sort in the waste, there is the possibility of recycling, which is better for the environment."), 
+            new Question("Scenario 2: You have a lamp where the bulb has broken. What kind of bulb should you replace your current bulb with? "
+                    + "\n(a) Incanescent bulb "
+                    + "\n(b) Hydrogn bulb "
+                    + "\n(c) LED bulb", 
+                    "c", 
+                    "Correct! - LED bulbs are the best bulb in the current market. It does not use much electricity, "
+                            + "\n but they last incredibly long.", 
+                    "Wrong! - LED bulbs are the best bulb in the current market. It does not use much electricity, "
+                            + "\n but they last incredibly long. That is the best option.")};
+        Quiz officeQuiz = new Quiz(officeQuestions);
+        office.setRoomQuiz(officeQuiz);
+        
+        //livingroom-quiz created
+        Question[] livingroomQuestions = new Question[]{
+            new Question("Scenario 1: Your television is broken, at the same time you have a lot of old wires that just need to be thrown out. Where do you throw it out? "
+                    + "\n (a) You throw it in the trash. The TV and the wires can easily be in it, which is easiest. "
+                    + "\n (b) You throw out the wires and run the TV at the recycling station.  "
+                    + "\n (c) You drive in the recycling bin, and sort the TV and wires, into the right containers. ", 
+                    "c", 
+                    "Correct! - The right way is to sort the TV and corts in to there own containers", 
+                    "Wrong! -  It is escpecialy importent to drive the TV and corts to the recycling station, and sort it in the right containers, because electric trash needs to be exposed the right way"), 
+            new Question("Scenario 2: You have hosted a party, and the next morning there are a lot of bottles and cans left over. What is the most usable way to get rid of it? "
+                    + "\n (a) You throw all the cans and bottles without a deposit in the trash, and go into the vending machine with the remaining deposit cans and bottles. "
+                    + "\n (b) You throw all the cans and bottles out in the trash. "
+                    + "\n (c) You go to the bottle refund machine with deposit cans and bottles, and drive to the recycling station with the remaining bottles and cans where you divide them into the right containers.", 
+                    "c", 
+                    "Correct!- The return percentage for bottles and cans in Denmark is 90%, but at the same time it is also important to get rid of the remaining cans and bottles without a deposit in the correct way. "
+                            + "\nAt the recycling stations, there are specific containers for both cans and bottles, as they will then be recycled in the same way as if it were pledged. "
+                            + "\nTherefore, do not mix bottles and cans with your other garbage as it will not be recycled.", 
+                    "Wrong! - It is important to sort bottles and cans, and bottles that cannot be returned must be taking to the recycling station")};
+        Quiz livingroomQuiz = new Quiz(livingroomQuestions);
+        livingRoom.setRoomQuiz(livingroomQuiz);
+        
+        //bedroomquiz created
+        Question[] bedroomQuestions = new Question[]{
+            new Question("Scenario 1: You can no longer fit your old trousers, so you want to get rid of them. How can you get rid of them most environmentally and possibly get some new ones?  "
+                    + "\n (a) You throw them out in the rycycling station, and then buy some new clothes from a store."
+                    + "\n (b) You buy some new clothes and leave the other one in the wardrobe. "
+                    + "\n (c) You take your old clothes to the Red Cross organisation, and only buy only what you need maybe at a secondhand store.", 
+                    "c", 
+                    "Correct! - Right - The textile industry is the second most polluting industry in the world. Only surpassed by the oil and gas industry. Therefore it is important that you think about what you do with your clothes and how to get something new. Here it is essential that you recycle your clothes and that you do not always feel the need to always have something new.", 
+                    "Wrong! -  Wrong! - The textile industry is the second most polluting industry in the world. Only surpassed by the oil and gas industry. Therefore it is important that you think about what you do with your clothes and how to get something new. Here it is essential that you recycle your clothes and that you do not always feel the need to always have something new."), 
+            new Question("Scenario 2: You read books before going to bed in the evening, and you've just finished the last one. What would be a good thing to do when buying books? "
+                    + "\n (a) You'll buy cheap book at the supermarket. "
+                    + "\n (b) You'll buy books, at the bookstore "
+                    + "\n (c) You'll start buying e-book.", 
+                    "c", 
+                    "Correct! - To avoid the large production behind the production of a book, it is far more environmentally conscious to buy an e-book.", 
+                    "Wrong! - To avoid the large production behind the production of a book, it is far more environmentally conscious to buy an e-book.")};
+        Quiz bedroomQuiz = new Quiz(bedroomQuestions);
+        bedroom.setRoomQuiz(bedroomQuiz);
+        
+        //supermarket-quiz created
+        Question[] supermarketQuestions = new Question[]{
+            new Question("Scenario 1: You have now arrived at the supermarket. You have to shop. What is the most important thing to think about when shopping?  "
+                    + "\n (a) You only buy what you need, ensuring that it is eaten while at the same time ensuring that nothing is wasted."
+                    + "\n (b) You only think about what you want to eat. Therefore, you end up buying redundant quantities. "
+                    + "\n (c) You think about the price. You buy cheap and you don't care if you buy unnecessary quantities.", 
+                    "a", 
+                    "Correct! - It is important to think about the amount of food and drink you buy when you shop, as food waste impacts the environment and costs billions in lost money.", 
+                    "Wrong! - It is important to think about the amount of food and drink you buy when you shop, as food waste impacts the environment and costs billions in lost money."), 
+            new Question("Scenario 2: You have to pay for your groceries and you realize that you haven't brought a bag to carry them home. What do you do? "
+                    + "\n (a) Buy a plastic bag for 1 DKK. "
+                    + "\n (b) Buy a paper bag for 2.5 DKK. "
+                    + "\n (c) Buy a fabric bag for 10 DKK.", 
+                    "c", 
+                    "Correct! - The fabric bag cab be reused an almost infinite number of times and thereby you reduce the ammount of waste you produce.", 
+                    "Wrong! - The fabric bag is the way to go. These types of bags can be reused and almost infinite number of times. "
+                            + "\n On the other hand, the plastic and/or paper bags are only good for a few times and then they have to be thrown out.")};
+        Quiz supermarketQuiz = new Quiz(supermarketQuestions);
+        supermarket.setRoomQuiz(supermarketQuiz);
 
+        //defines starting room
         currentRoom = garden;
     }
 
@@ -245,16 +354,16 @@ public class Game {
                 Scanner input = new Scanner(System.in);
                 Question.playerInput = input.nextLine();
                 if (Question.playerInput.equals(currentRoom.getRoomQuiz().questions[i].getAnswer())) {
-                    System.out.println("Correct! " + currentRoom.getRoomQuiz().questions[i].getCorrectResponse());
+                    System.out.println(currentRoom.getRoomQuiz().questions[i].getCorrectResponse());
                     Player.points++;
                     System.out.println("You received 1 point!");
                 } else {
-                    System.out.println("Wrong! " + currentRoom.getRoomQuiz().questions[i].getIncorrectResponse());
+                    System.out.println(currentRoom.getRoomQuiz().questions[i].getIncorrectResponse());
                     System.out.println("You didn't receive any points for that answer.");
                 }
             }
             
-            Quiz.isDone = true;
+            currentRoom.getRoomQuiz().isDone = true;
             
             System.out.println("You have completed the quiz!");
             if (currentRoom == garden) {
@@ -263,9 +372,9 @@ public class Game {
                 System.out.println("Key(office) has been dropped don't forget to pick it up!");
 
             } else if (currentRoom == office) {
-                Item kitchenKey = new Key(kitchen, "Key(kitchen)", "a key to the kitchen");
-                currentRoom.addItem("Key(kitchen)", kitchenKey);
-                System.out.println("Key(kitchen) has been dropped don't forget to pick it up!");
+                Item livingRoomKey = new Key(livingRoom, "Key(livingroom)", "a key to the livingroom");
+                currentRoom.addItem("Key(livingroom)", livingRoomKey);
+                System.out.println("Key(livingroom) has been dropped, don't forget to pick it up!");
 
             } else if (currentRoom == kitchen) {
                 Item bedroomKey = new Key(bedroom, "Key(bedroom)", "a key to the bedroom");
@@ -273,17 +382,17 @@ public class Game {
                 System.out.println("Key(bedroom) has been dropped don't forget to pick it up!");
 
             } else if (currentRoom == bedroom) {
-                Item livingRoomKey = new Key(livingRoom, "Key(livingroom)", "a key to the livingroom");
-                currentRoom.addItem("Key(livingroom)", livingRoomKey);
-                System.out.println("Key(livingroom) has been dropped, don't forget to pick it up!");
-
-            } else if (currentRoom == livingRoom) {
                 Item supermarketKey = new Key(supermarket, "Key(supermarket)", "a key to the supermarket");
                 currentRoom.addItem("Key(supermarket)", supermarketKey);
                 System.out.println("Key(supermarket) has been dropped don't forget to pick it up!");
 
+            } else if (currentRoom == livingRoom) {
+                Item kitchenKey = new Key(kitchen, "Key(kitchen)", "a key to the kitchen");
+                currentRoom.addItem("Key(kitchen)", kitchenKey);
+                System.out.println("Key(kitchen) has been dropped don't forget to pick it up!");
+
             } else if (currentRoom == supermarket) {
-                System.out.println("Your have completed all of the quizzes!");
+                System.out.println("You have completed all of the quizzes!");
             }
         } else {
             System.out.println("You have already completed this quiz. Please continue to another room");
@@ -294,7 +403,7 @@ public class Game {
     private void printWelcome() {
         System.out.println();
         System.out.println("Welcome to TrashWorld " + player.getName() + "!");
-        System.out.println("TrashWorld is a new game, that is here to help you understand how you can help save the environment!"
+        System.out.println("TrashWorld is a new game, that is here to help you understand how YOU can help save the environment from drowning in trash!"
                 + "\nTrashWorld is made to be a learning experience, for you to expand your knowledge in regards to how to handle waste in your everyday life."
                 + "\nThe game is simple:"
                 + "\n1: Pick up items around the rooms and learn something new!(note: after you pick up the items, you don't have to do anything else with them)"
@@ -372,7 +481,7 @@ public class Game {
                 + "\n'inventory' - displays the items that are currently held in inventory."
                 + "\n'start quiz' - starts the quiz in the current room."
                 + "\n'points' - displays your points."
-                + "\n'items' - prints all items that are in the current room.");
+                + "\n'items' - displays all items that are in the current room.");
     }
 
     //method goRoom that takes an arguement of type Command
@@ -398,7 +507,7 @@ public class Game {
             System.out.println(currentRoom.getLongDescription());
             System.out.println(currentRoom.printItems(currentRoom.getItems()));
         } else if (!nextRoom.isUnlockable()){
-            System.out.println("Door is locked");
+            System.out.println("That door is locked! You may need to complete another quiz to get the key for this door.");
         }
     }
 
