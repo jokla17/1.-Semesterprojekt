@@ -10,6 +10,7 @@ public class Game {
 
     //no-arg constructor that creates a Game object. The Game object runs the createRooms method, and creates a new Parser object.
     public Game() {
+        //this is the game
         player = new Player();
         createRooms();
         parser = new Parser();
