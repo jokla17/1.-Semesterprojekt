@@ -1,0 +1,16 @@
+com\mycompany\tworld\Quiz.class
+com\mycompany\tworld\Room.class
+com\mycompany\tworld\App.class
+com\mycompany\tworld\PrimaryController$1.class
+com\mycompany\tworld\Question.class
+com\mycompany\tworld\Item.class
+com\mycompany\tworld\Parser.class
+com\mycompany\tworld\CommandWord.class
+com\mycompany\tworld\CustomOutputStream.class
+module-info.class
+com\mycompany\tworld\Player.class
+com\mycompany\tworld\Game.class
+com\mycompany\tworld\PrimaryController.class
+com\mycompany\tworld\Command.class
+com\mycompany\tworld\Key.class
+com\mycompany\tworld\CommandWords.class
