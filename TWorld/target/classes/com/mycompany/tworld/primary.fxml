@@ -5,7 +5,6 @@
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -61,10 +60,7 @@
                <children>
                   <VBox alignment="CENTER" prefHeight="114.0" prefWidth="134.0">
                      <children>
-                        <ImageView fx:id="map" accessibleHelp="Map" accessibleText="Map" fitHeight="104.0" fitWidth="146.0" pickOnBounds="true" smooth="false">
-                           <image>
-                              <Image url="file:/C:/Users/svane/Documents/NetBeansProjects/TWorld/src/assets/img/garden.png" />
-                           </image></ImageView>
+                        <ImageView fx:id="map" accessibleHelp="Map" accessibleText="Map" fitHeight="104.0" fitWidth="146.0" pickOnBounds="true" smooth="false" />
                      </children></VBox>
                </children>
             </Pane>

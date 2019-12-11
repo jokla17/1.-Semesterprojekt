@@ -28,12 +28,12 @@ public class PrimaryController {
     ObservableList<String> roomItems = observableArrayList(game.currentRoom.getRoomItemsList()); //instantiates an observableArrayList for items in the rooms
 
     //creates image objects for the map
-    Image gardenMap = new Image("file:\\C:\\Users\\svane\\Documents\\NetBeansProjects\\TWorld\\src\\assets\\img\\garden.png");
-    Image officeMap = new Image("file:\\C:\\Users\\svane\\Documents\\NetBeansProjects\\TWorld\\src\\assets\\img\\office.png");
-    Image kitchenMap = new Image("file:\\C:\\Users\\svane\\Documents\\NetBeansProjects\\TWorld\\src\\assets\\img\\kitchen.png");
-    Image livingroomMap = new Image("file:\\C:\\Users\\svane\\Documents\\NetBeansProjects\\TWorld\\src\\assets\\img\\livingroom.png");
-    Image bedroomMap = new Image("file:\\C:\\Users\\svane\\Documents\\NetBeansProjects\\TWorld\\src\\assets\\img\\bedroom.png");
-    Image supermarketMap = new Image("file:\\C:\\Users\\svane\\Documents\\NetBeansProjects\\TWorld\\src\\assets\\img\\supermarket.png");
+    Image gardenMap = new Image(getClass().getClassLoader().getResource("garden.png").toString());
+    Image officeMap = new Image(getClass().getClassLoader().getResource("office.png").toString());
+    Image kitchenMap = new Image(getClass().getClassLoader().getResource("kitchen.png").toString());
+    Image livingroomMap = new Image(getClass().getClassLoader().getResource("livingroom.png").toString());
+    Image bedroomMap = new Image(getClass().getClassLoader().getResource("bedroom.png").toString());
+    Image supermarketMap = new Image(getClass().getClassLoader().getResource("supermarket.png").toString());
 
     //defines all the GUI controls
     @FXML
@@ -166,12 +166,13 @@ public class PrimaryController {
                 String name = nameBox.getText();
                 nameField.setText(name); //transfers the name that the player has entered to the texfield behind the dialog box
                 Player.setName(name); //sets the name for the player in the player-class as well
-                pointsField.setText(Integer.toString(Player.points)); //defines where the points textField gets its data from
+                pointsField.setText(Integer.toString(Player.points)); //defines where the points-textField gets its data from
                 dialog.close(); //closes the dialogbox
                 game.printWelcome();
                 inventory.setItems(inventoryItems); //sets the players inventory to show any inventoryItems there might be from the beginning
                 itemsInRoom.setItems(roomItems); //is here so the room in which the player spawns also shows a list of items
                 playButton.setDisable(true);
+                mapUpdater();
             }
         });
     }
@@ -437,6 +438,11 @@ public class PrimaryController {
             roomItems.add("Key(kitchen)");
             itemsInRoom.setItems(roomItems);
             System.out.println("Key(kitchen) has been dropped don't forget to pick it up!");
+        } else if (game.currentRoom == game.supermarket) {
+            System.out.println("Congratulations! You have now finished all of the quizzes in the game!");
+            System.out.println("You ended up with a final score of " + Player.points);
+            System.out.println("You can now go back and pick up any remaining items or quit the game.");
+            System.out.println("Thank you for playing!");
         }
     }
 
